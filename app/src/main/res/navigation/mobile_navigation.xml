@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_customer">
+
+    <fragment
+        android:id="@+id/nav_customer"
+        android:name="com.its.camcar.ui.customer.CustomerFragment"
+        android:label="@string/customer"
+        tools:layout="@layout/fragment_customer"/>
+    <fragment
+        android:id="@+id/nav_company"
+        android:name="com.its.camcar.ui.company.CompanyFragment"
+        android:label="@string/company"
+        tools:layout="@layout/fragment_company"/>
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.its.camcar.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile"/>
+</navigation>

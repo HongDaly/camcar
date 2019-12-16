@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "220830421022",
+    "firebase_url": "https://camcar-f40a3.firebaseio.com",
+    "project_id": "camcar-f40a3",
+    "storage_bucket": "camcar-f40a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220830421022:android:15aeb27e005f0ea9b0de0f",
+        "android_client_info": {
+          "package_name": "com.its.camcar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220830421022-i77s03pb6u34sk9nci8vtmefgstnjvfe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxb5J1BkTzzvKA2VLS-ws1bL4eozsKC44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220830421022-i77s03pb6u34sk9nci8vtmefgstnjvfe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
