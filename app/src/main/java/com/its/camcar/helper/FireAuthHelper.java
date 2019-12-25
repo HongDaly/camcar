@@ -36,9 +36,12 @@ public class FireAuthHelper {
 //                          Start to MainActivity
 //                            else go to doc verify diver (ID Card)
                             if(user.getRole().toLowerCase().equals("customer")){
+
                                 context.startActivity(new Intent(context, MainActivity.class));
                             }else{
-                                context.startActivity(new Intent(context, DriverVerifyActivity.class));
+                                Intent intent = new Intent(context,DriverVerifyActivity.class);
+                                intent.putExtra("user",user);
+                                context.startActivity(intent);
                             }
 
                         }else {

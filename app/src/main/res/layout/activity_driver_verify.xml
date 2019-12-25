@@ -11,10 +11,11 @@
         android:textColor="@color/colorWhite"
         android:gravity="center"
         android:background="@color/colorAccent"
-        android:text="Verify National ID Card"
+        android:text="@string/verify_driver"
         android:layout_width="match_parent"
         android:layout_height="52dp"/>
     <ImageView
+        android:id="@+id/verify_iv_id_card"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_id_verification"
         android:layout_width="match_parent"
@@ -22,12 +23,12 @@
     <TextView
         android:gravity="center"
         android:padding="30dp"
-        android:text="By Registering , you confirm that you
-accept our Term of Use, and Privacy Policy"
+        android:text="@string/role"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
+        android:id="@+id/verify_btn_verify"
         android:textColor="@color/colorWhite"
         android:background="@color/colorAccent"
         android:text="@string/verify"

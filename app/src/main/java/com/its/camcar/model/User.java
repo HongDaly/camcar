@@ -1,6 +1,8 @@
 package com.its.camcar.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
     private String id;
     private String fullName;
     private String phone;
