@@ -8,7 +8,15 @@ public class User implements Serializable{
     private String phone;
     private String password;
     private String role;
+    private String verifyCardUrl;
 
+    public String getVerifyCardUrl() {
+        return verifyCardUrl;
+    }
+
+    public void setVerifyCardUrl(String verifyCardUrl) {
+        this.verifyCardUrl = verifyCardUrl;
+    }
 
     public String getId() {
         return id;

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
@@ -31,10 +32,18 @@ public class FirebaseHelper {
                     @Override
                     public void onSuccess(Uri uri) {
                         Log.d("Image Url", "onSuccess: uri= "+ uri.toString());
-//                        save user
+//                        add user to firestore
+                        user.setVerifyCardUrl(uri.toString());
+                        addUserToFirestore(user);
+
                     }
                 });
             }
         });
+    }
+
+    public void addUserToFirestore(User user){
+
+        db.collection("users").add(user);
     }
 }

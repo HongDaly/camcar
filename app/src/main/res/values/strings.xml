@@ -31,4 +31,5 @@
     <string name="verify">Verify</string>
     <string name="role">By Registering , you confirm that you accept our Term of Use, and Privacy Policy</string>
     <string name="verify_driver">Verify National ID Card</string>
+    <string name="user_name">User Name</string>
 </resources>

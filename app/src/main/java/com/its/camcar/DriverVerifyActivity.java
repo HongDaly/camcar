@@ -1,10 +1,15 @@
 package com.its.camcar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -64,13 +69,20 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
         int id = view.getId();
         if(id == ivIDCard.getId()){
 //            OpenCamera
-            openCamera();
+            if(checkPermissionStorage()){
+                openCamera();
+            }else {
+                Toast.makeText(getApplicationContext(),"Please allow permission to use this app",Toast.LENGTH_LONG).show();
+            }
+
 
         }else if(id == btnVerify.getId()){
 //  upload image
 //  save user to Firestore
 //  Start ScheduleActivity
             firebaseHelper.saveUser(image,user);
+
+            startActivity(new Intent(DriverVerifyActivity.this,ScheduleActivity.class));
         }
     }
 
@@ -102,6 +114,44 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         String path = MediaStore.Images.Media.insertImage(getContentResolver(), inImage, "Title", null);
         return Uri.parse(path);
+    }
+
+    private boolean checkPermissionStorage(){
+
+        if(ContextCompat.checkSelfPermission(getApplicationContext()
+        , Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(getApplicationContext(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
+                ActivityCompat.requestPermissions(
+                        this,new String[]{
+                          Manifest.permission.READ_EXTERNAL_STORAGE,
+                          Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        },
+                        101
+                );
+                return false;
+
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == 101){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
+                openCamera();
+            }else {
+                Toast.makeText(getApplicationContext(),"Please allow permission to use this app",Toast.LENGTH_LONG).show();
+
+            }
+        }
+
     }
 }
 
