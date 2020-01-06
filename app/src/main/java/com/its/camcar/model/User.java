@@ -9,6 +9,15 @@ public class User implements Serializable{
     private String password;
     private String role;
     private String verifyCardUrl;
+    private String profileUrl;
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
 
     public String getVerifyCardUrl() {
         return verifyCardUrl;
