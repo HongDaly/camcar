@@ -9,41 +9,41 @@
     android:padding="5dp">
 
 
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-        <ImageView
-            android:id="@+id/sd_iv_driver"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:src="@drawable/ic_user"
-            android:layout_weight="2" />
-        <LinearLayout
-            android:layout_marginLeft="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:weightSum="2">
-            <TextView
-                android:id="@+id/sd_tv_driver_name"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/user_name"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/sd_tv_driver_id"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="ID"/>
-        </LinearLayout>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:weightSum="3">-->
+<!--        <ImageView-->
+<!--            android:id="@+id/sd_iv_driver"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="58dp"-->
+<!--            android:src="@drawable/ic_user"-->
+<!--            android:layout_weight="2" />-->
+<!--        <LinearLayout-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_weight="1"-->
+<!--            android:weightSum="2">-->
+<!--            <TextView-->
+<!--                android:id="@+id/sd_tv_driver_name"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/user_name"-->
+<!--                android:textStyle="bold"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/sd_tv_driver_id"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="ID"/>-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"

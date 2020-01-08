@@ -39,8 +39,8 @@ public class FireAuthHelper {
 
                                 context.startActivity(new Intent(context, MainActivity.class));
                             }else{
-                                Intent intent = new Intent(context,DriverVerifyActivity.class);
-                                intent.putExtra("user",user);
+                                Intent intent = new Intent(context,MainActivity.class);
+//                                intent.putExtra("user",user);
                                 context.startActivity(intent);
                             }
 

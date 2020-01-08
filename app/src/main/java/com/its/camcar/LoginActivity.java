@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,8 +33,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin.setOnClickListener(this);
         tvCreateAccount.setOnClickListener(this);
 
+//        check if has user (driver/customer)
+        checkCurrentUser();
+
+
     }
 
+    private void checkCurrentUser(){
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser != null){
+            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        }
+    }
     @Override
     public void onClick(View view) {
         int id = view.getId();

@@ -82,7 +82,7 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
 //  Start ScheduleActivity
             firebaseHelper.saveUser(image,user);
 
-            startActivity(new Intent(DriverVerifyActivity.this,ScheduleActivity.class));
+            startActivity(new Intent(DriverVerifyActivity.this,MainActivity.class));
         }
     }
 

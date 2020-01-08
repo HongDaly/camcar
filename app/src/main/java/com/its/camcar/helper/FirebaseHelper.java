@@ -11,6 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
+import com.its.camcar.model.Schedule;
 import com.its.camcar.model.User;
 
 public class FirebaseHelper {
@@ -71,6 +72,11 @@ public class FirebaseHelper {
                 });
             }
         });
+    }
+
+    //add schedule
+    public void addScheduleToFirestore(Schedule schedule){
+        db.collection("schedule").add(schedule);
     }
 
 }

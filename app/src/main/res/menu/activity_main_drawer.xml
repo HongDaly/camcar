@@ -4,11 +4,15 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-
+<!--Menu for driver-->
         <item
             android:id="@+id/nav_customer"
             android:icon="@drawable/ic_customer"
             android:title="@string/customer" />
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/schedule" />
         <item
             android:id="@+id/nav_company"
             android:icon="@drawable/ic_company"
@@ -17,9 +21,11 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="@string/profile" />
+<!--Menu for customer    -->
+
     </group>
 
-    <item android:title="More">
+    <item android:title="@string/more">
         <menu>
             <item
                 android:id="@+id/nav_log_out"
