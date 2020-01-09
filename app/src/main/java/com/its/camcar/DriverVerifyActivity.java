@@ -79,7 +79,7 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
         }else if(id == btnVerify.getId()){
 //  upload image
 //  save user to Firestore
-//  Start ScheduleActivity
+//  Start AddScheduleActivity
             firebaseHelper.saveUser(image,user);
 
             startActivity(new Intent(DriverVerifyActivity.this,MainActivity.class));

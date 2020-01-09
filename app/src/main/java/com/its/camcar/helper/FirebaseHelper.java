@@ -76,7 +76,7 @@ public class FirebaseHelper {
 
     //add schedule
     public void addScheduleToFirestore(Schedule schedule){
-        db.collection("schedule").add(schedule);
+        db.collection("schedule").document(schedule.getUserId()).collection("list").add(schedule);
     }
 
 }

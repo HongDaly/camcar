@@ -35,4 +35,9 @@
     <string name="finish">Finish</string>
     <string name="more">More</string>
     <string name="schedule">Schedule</string>
+    <string name="price">Price</string>
+    <string name="arrivetime">ArriveTime</string>
+    <string name="starttime">StartTime</string>
+    <string name="arrive">Arrive</string>
+    <string name="start">Start</string>
 </resources>

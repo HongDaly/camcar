@@ -23,7 +23,7 @@ import com.its.camcar.model.Schedule;
 
 import java.io.ByteArrayOutputStream;
 
-public class ScheduleActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddScheduleActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseHelper firebaseHelper;
 

@@ -1,12 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScheduleActivity"
-    android:orientation="vertical"
+    tools:context=".AddScheduleActivity"
+
     android:padding="5dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg2a">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ទីតាំងចេញ​   : "
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="7dp"/>
+            <LinearLayout
+                android:background="@drawable/bg1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="3dp"
+                android:layout_margin="3dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ខេត្ត​ឬក្រុង      :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"/>
+                    <EditText
+                        android:id="@+id/sd_edt_from_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ស្រុកឬខណ្ឌ័    :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"/>
+                    <EditText
+                        android:id="@+id/sd_edt_from_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ឃុំឬសង្កាត់​​     :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"/>
+                    <EditText
+                        android:id="@+id/sd_edt_from_commune"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ទីរាំងជាក់លាក់ :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"/>
+                    <EditText
+                        android:id="@+id/sd_edt_from_exact_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="3.5"
+                android:layout_marginLeft="6dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ម៉ោងចេញ​       :"
+                    android:textSize="18dp"
+                    android:layout_weight="2.5"/>
+                <EditText
+                    android:id="@+id/sd_edt_start_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="3.5"
+                android:layout_marginLeft="6dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="ម៉ោងទៅដល់​   :"
+                    android:textSize="18dp"
+                    android:layout_weight="2.5"
+                    android:textColor="@color/colorBlack"/>
+                <EditText
+                    android:id="@+id/sd_edt_finish_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="3.5"
+            android:layout_marginLeft="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                android:text="តម្លៃ   ​​​​​​​       :"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp" />
+            <EditText
+                android:id="@+id/sd_edt_price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/bg2a"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ទីតាំងទៅដល់ : "
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:layout_marginLeft="7dp"/>
+            <LinearLayout
+                android:background="@drawable/bg1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="3dp"
+                android:layout_margin="3dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ខេត្ត​ឬក្រុង      :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"
+                        android:textColor="@color/colorBlack"/>
+                    <EditText
+                        android:id="@+id/sd_edt_to_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ស្រុកឬខណ្ឌ័    :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"
+                        android:textColor="@color/colorBlack"/>
+                    <EditText
+                        android:id="@+id/sd_edt_to_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ឃុំឬសង្កាត់​​     :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"
+                        android:textColor="@color/colorBlack"/>
+                    <EditText
+                        android:id="@+id/sd_edt_to_commune"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3.5">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="ទីរាំងជាក់លាក់ :"
+                        android:textSize="18dp"
+                        android:layout_weight="2.5"
+                        android:textColor="@color/colorBlack"/>
+                    <EditText
+                        android:id="@+id/sd_edt_to_exact_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorWhite"
+                android:id="@+id/sd_fbtn_add"
+                android:src="@android:drawable/ic_input_add"
+                android:layout_gravity="end"
+                android:layout_margin="5dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
 <!--    <LinearLayout-->
@@ -44,274 +308,9 @@
 <!--                android:text="ID"/>-->
 <!--        </LinearLayout>-->
 <!--    </LinearLayout>-->
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/bg2a">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ទីតាំងចេញ​   : "
-            android:textSize="23dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="7dp"/>
-        <LinearLayout
-            android:background="@drawable/bg1a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="3dp"
-            android:layout_margin="3dp">
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ខេត្ត​ឬក្រុង      :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"/>
-                <EditText
-                    android:id="@+id/sd_edt_from_province"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ស្រុកឬខណ្ឌ័    :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"/>
-                <EditText
-                    android:id="@+id/sd_edt_from_district"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ឃុំឬសង្កាត់​​     :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"/>
-                <EditText
-                    android:id="@+id/sd_edt_from_commune"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ទីរាំងជាក់លាក់ :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"/>
-                <EditText
-                    android:id="@+id/sd_edt_from_exact_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="3.5"
-            android:layout_marginLeft="6dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="ម៉ោងចេញ​       :"
-                android:textSize="18dp"
-                android:layout_weight="2.5"/>
-            <EditText
-                android:id="@+id/sd_edt_start_time"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="3.5"
-            android:layout_marginLeft="6dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="ម៉ោងទៅដល់​   :"
-                android:textSize="18dp"
-                android:layout_weight="2.5"
-                android:textColor="@color/colorBlack"/>
-            <EditText
-                android:id="@+id/sd_edt_finish_time"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal"
-        android:weightSum="3.5"
-        android:layout_marginLeft="6dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2.5"
-            android:text="តម្លៃ   ​​​​​​​       :"
-            android:textColor="@color/colorBlack"
-            android:textSize="18dp" />
-        <EditText
-            android:id="@+id/sd_edt_price"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
-    <LinearLayout
-        android:background="@drawable/bg2a"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ទីតាំងទៅដល់ : "
-            android:textSize="23dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"
-            android:layout_marginLeft="7dp"/>
-        <LinearLayout
-            android:background="@drawable/bg1a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="3dp"
-            android:layout_margin="3dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ខេត្ត​ឬក្រុង      :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"
-                    android:textColor="@color/colorBlack"/>
-                <EditText
-                    android:id="@+id/sd_edt_to_province"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ស្រុកឬខណ្ឌ័    :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"
-                    android:textColor="@color/colorBlack"/>
-                <EditText
-                    android:id="@+id/sd_edt_to_district"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ឃុំឬសង្កាត់​​     :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"
-                    android:textColor="@color/colorBlack"/>
-                <EditText
-                    android:id="@+id/sd_edt_to_commune"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:weightSum="3.5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ទីរាំងជាក់លាក់ :"
-                    android:textSize="18dp"
-                    android:layout_weight="2.5"
-                    android:textColor="@color/colorBlack"/>
-                <EditText
-                    android:id="@+id/sd_edt_to_exact_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-       <Button
-           android:id="@+id/sd_btn_finish"
-           android:layout_centerVertical="true"
-           android:text="@string/finish"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"/>
-
-       <com.google.android.material.floatingactionbutton.FloatingActionButton
-           android:layout_width="wrap_content"
-           android:layout_alignParentEnd="true"
-           android:layout_height="wrap_content"
-           android:tint="@color/colorWhite"
-           android:id="@+id/sd_fbtn_add"
-           android:src="@android:drawable/ic_input_add"
-           android:layout_gravity="end"
-           android:layout_margin="5dp"/>
-
-   </RelativeLayout>
 
 
-</LinearLayout>
+</ScrollView>
 
 
 

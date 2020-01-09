@@ -15,7 +15,26 @@ public class Schedule {
     private String arrivedExactLocation;
     private String userId;
 
-    public Schedule(String price, String startTime, String arrivedTime, String startProvince, String startDistrict, String startCommune, String startExactLocation, String arrivedProvince, String arrivedDistrict, String arrivedCommune, String arrivedExactLocation,String userId) {
+    public Schedule(String id, String price, String startTime, String arrivedTime, String startProvince, String startDistrict, String startCommune, String startExactLocation, String arrivedProvince, String arrivedDistrict, String arrivedCommune, String arrivedExactLocation, String userId) {
+        this.id = id;
+        this.price = price;
+        this.startTime = startTime;
+        this.arrivedTime = arrivedTime;
+        this.startProvince = startProvince;
+        this.startDistrict = startDistrict;
+        this.startCommune = startCommune;
+        this.startExactLocation = startExactLocation;
+        this.arrivedProvince = arrivedProvince;
+        this.arrivedDistrict = arrivedDistrict;
+        this.arrivedCommune = arrivedCommune;
+        this.arrivedExactLocation = arrivedExactLocation;
+        this.userId = userId;
+    }
+
+    public Schedule() {
+    }
+
+    public Schedule(String price, String startTime, String arrivedTime, String startProvince, String startDistrict, String startCommune, String startExactLocation, String arrivedProvince, String arrivedDistrict, String arrivedCommune, String arrivedExactLocation, String userId) {
 
         this.price = price;
         this.startTime = startTime;
@@ -30,6 +49,7 @@ public class Schedule {
         this.arrivedExactLocation = arrivedExactLocation;
         this.userId = userId;
     }
+
 
     public String getUserId() {
         return userId;
