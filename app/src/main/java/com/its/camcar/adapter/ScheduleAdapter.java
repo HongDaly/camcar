@@ -39,7 +39,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
-
+        holder.init(schedules.get(position));
     }
 
     @Override

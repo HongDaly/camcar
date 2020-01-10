@@ -4,6 +4,7 @@ package com.its.camcar.ui.schedule;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +16,9 @@ import android.view.ViewGroup;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.its.camcar.R;
@@ -80,27 +83,28 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getSchedule(){
+
+
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         String userId = firebaseAuth.getUid();
         firebaseFirestore.
                 collection("schedule").
-                document(userId).collection("list").
-                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if(queryDocumentSnapshots != null){
-                   for(QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
-                       Schedule schedule = snapshot.toObject(Schedule.class);
-                       schedules.add(schedule);
-                   }
-                   if(schedules.size() !=0 ){
-                       scheduleAdapter.updateSchedule(schedules);
-                   }
-                }
-            }
-        });
-
-
+                document(userId).collection("list")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                        if(queryDocumentSnapshots != null){
+                            schedules.clear();
+                            scheduleAdapter.updateSchedule(schedules);
+                            for(QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
+                                Schedule schedule = snapshot.toObject(Schedule.class);
+                                schedules.add(schedule);
+                            }
+                            if(schedules.size() !=0 ){
+                                scheduleAdapter.updateSchedule(schedules);
+                            }
+                        }
+                    }
+                });
     }
-
 }
