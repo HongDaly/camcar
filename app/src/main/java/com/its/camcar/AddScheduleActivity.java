@@ -81,6 +81,7 @@ public class AddScheduleActivity extends AppCompatActivity implements View.OnCli
 
        if(id == fBtnAdd.getId()){
             String userId = "-1";
+
             if(FirebaseAuth.getInstance().getCurrentUser() != null)
                  userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
             Schedule schedule =

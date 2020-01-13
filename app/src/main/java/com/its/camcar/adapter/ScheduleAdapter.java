@@ -1,13 +1,18 @@
 package com.its.camcar.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.its.camcar.EditScheduleActivity;
 import com.its.camcar.R;
 import com.its.camcar.model.Schedule;
 import com.its.camcar.view_holder.ScheduleViewHolder;
@@ -39,7 +44,38 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
-        holder.init(schedules.get(position));
+
+        final Schedule schedule = schedules.get(position);
+        holder.init(schedule);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String[] options = new String[]{"View","Edit","Delete"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Options");
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(which == 0){
+                            // start schedule info
+                        }else if(which == 1){
+//                            start schedule edit
+                            Intent intent = new Intent(context, EditScheduleActivity.class);
+
+                            intent.putExtra("schedule",schedule);
+                            context.startActivity(intent);
+
+
+                        }else{
+//                            delete
+
+                        }
+                    }
+                });
+                builder.show();
+            }
+        });
+
     }
 
     @Override

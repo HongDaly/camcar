@@ -1,6 +1,8 @@
 package com.its.camcar.model;
 
-public class Schedule {
+import java.io.Serializable;
+
+public class Schedule implements Serializable {
     private String id;
     private String price;
     private String startTime;
