@@ -23,13 +23,7 @@ public class EditScheduleActivity extends AppCompatActivity {
             schedule = new Schedule();
         }
 
-
-
         edtStartProvince = findViewById(R.id.esd_edt_from_province);
-
-
-
-
 
         edtStartProvince.setText(schedule.getStartProvince());
     }
