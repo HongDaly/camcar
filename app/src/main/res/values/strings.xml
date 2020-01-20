@@ -40,4 +40,6 @@
     <string name="starttime">StartTime</string>
     <string name="arrive">Arrive</string>
     <string name="start">Start</string>
+    <string name="update">Update</string>
+    <string name="history">History</string>
 </resources>

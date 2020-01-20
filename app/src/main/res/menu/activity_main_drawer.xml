@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-<!--Menu for driver-->
+    <group android:checkableBehavior="single"
+        android:id="@+id/g_nav_driver">
+        <!--Menu for driver-->
         <item
             android:id="@+id/nav_customer"
             android:icon="@drawable/ic_customer"
@@ -21,7 +22,22 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="@string/profile" />
-<!--Menu for customer    -->
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/g_nav_customer">
+        <!--Menu for driver-->
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/nav_customer_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/profile" />
 
     </group>
 

@@ -35,15 +35,21 @@ public class FireAuthHelper {
 //                            if role customer
 //                          Start to MainActivity
 //                            else go to doc verify diver (ID Card)
-                            if(user.getRole().toLowerCase().equals("customer")){
+//                            Create user
+                            if(task.getResult() != null && task.getResult().getUser()!=null){
 
-                                context.startActivity(new Intent(context, MainActivity.class));
-                            }else{
-                                Intent intent = new Intent(context,MainActivity.class);
+                                FirebaseHelper firebaseHelper = new FirebaseHelper(context);
+                                user.setId(task.getResult().getUser().getUid());
+
+                                firebaseHelper.addUserToFirestore(user);
+                                if(user.getRole().toLowerCase().equals("customer")){
+                                    context.startActivity(new Intent(context, MainActivity.class));
+                                }else{
+                                    Intent intent = new Intent(context,MainActivity.class);
 //                                intent.putExtra("user",user);
-                                context.startActivity(intent);
+                                    context.startActivity(intent);
+                                }
                             }
-
                         }else {
                             Log.d("Create User","Error");
                         }

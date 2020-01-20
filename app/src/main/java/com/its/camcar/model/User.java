@@ -11,6 +11,20 @@ public class User implements Serializable{
     private String verifyCardUrl;
     private String profileUrl;
 
+
+    public User() {
+    }
+
+    public User(String id, String fullName, String phone, String password, String role, String verifyCardUrl, String profileUrl) {
+        this.id = id;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.password = password;
+        this.role = role;
+        this.verifyCardUrl = verifyCardUrl;
+        this.profileUrl = profileUrl;
+    }
+
     public String getProfileUrl() {
         return profileUrl;
     }

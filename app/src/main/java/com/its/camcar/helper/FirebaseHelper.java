@@ -47,7 +47,7 @@ public class FirebaseHelper {
 
     public void addUserToFirestore(User user){
 
-        db.collection("users").add(user);
+        db.collection("users").document(user.getId()).set(user);
     }
 
 //    add profile user
@@ -76,7 +76,18 @@ public class FirebaseHelper {
 
     //add schedule
     public void addScheduleToFirestore(Schedule schedule){
-        db.collection("schedule").document(schedule.getUserId()).collection("list").add(schedule);
+        String id = db.collection("schedule").document(schedule.getUserId()).collection("list").document().getId();
+        schedule.setId(id);
+        db.collection("schedule").document(schedule.getUserId()).collection("list").document(schedule.getId()).set(schedule);
+    }
+//  update schedule
+
+    public void updateScheduleToFirestore(Schedule schedule){
+        db.collection("schedule").document(schedule.getUserId()).collection("list").document(schedule.getId()).set(schedule);
     }
 
+    //  update schedule
+    public void deleteScheduleToFirestore(Schedule schedule){
+        db.collection("schedule").document(schedule.getUserId()).collection("list").document(schedule.getId()).delete();
+    }
 }

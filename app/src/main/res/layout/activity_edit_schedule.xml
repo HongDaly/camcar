@@ -60,7 +60,7 @@
                         android:textSize="18dp"
                         android:layout_weight="2.5"/>
                     <EditText
-                        android:id="@+id/sd_edt_from_district"
+                        android:id="@+id/esd_edt_from_district"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -77,7 +77,7 @@
                         android:textSize="18dp"
                         android:layout_weight="2.5"/>
                     <EditText
-                        android:id="@+id/sd_edt_from_commune"
+                        android:id="@+id/esd_edt_from_commune"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -94,7 +94,7 @@
                         android:textSize="18dp"
                         android:layout_weight="2.5"/>
                     <EditText
-                        android:id="@+id/sd_edt_from_exact_location"
+                        android:id="@+id/esd_edt_from_exact_location"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -113,7 +113,7 @@
                     android:textSize="18dp"
                     android:layout_weight="2.5"/>
                 <EditText
-                    android:id="@+id/sd_edt_start_time"
+                    android:id="@+id/esd_edt_start_time"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -132,7 +132,7 @@
                     android:layout_weight="2.5"
                     android:textColor="@color/colorBlack"/>
                 <EditText
-                    android:id="@+id/sd_edt_finish_time"
+                    android:id="@+id/esd_edt_finish_time"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
@@ -153,7 +153,7 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp" />
             <EditText
-                android:id="@+id/sd_edt_price"
+                android:id="@+id/esd_edt_price"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
@@ -192,7 +192,7 @@
                         android:layout_weight="2.5"
                         android:textColor="@color/colorBlack"/>
                     <EditText
-                        android:id="@+id/sd_edt_to_province"
+                        android:id="@+id/esd_edt_to_province"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -210,7 +210,7 @@
                         android:layout_weight="2.5"
                         android:textColor="@color/colorBlack"/>
                     <EditText
-                        android:id="@+id/sd_edt_to_district"
+                        android:id="@+id/esd_edt_to_district"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -228,7 +228,7 @@
                         android:layout_weight="2.5"
                         android:textColor="@color/colorBlack"/>
                     <EditText
-                        android:id="@+id/sd_edt_to_commune"
+                        android:id="@+id/esd_edt_to_commune"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -246,7 +246,7 @@
                         android:layout_weight="2.5"
                         android:textColor="@color/colorBlack"/>
                     <EditText
-                        android:id="@+id/sd_edt_to_exact_location"
+                        android:id="@+id/esd_edt_to_exact_location"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
@@ -258,106 +258,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_alignParentEnd="true"
+            <Button
+                android:id="@+id/esd_btn_update"
+                android:layout_margin="30dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:tint="@color/colorWhite"
-                android:id="@+id/sd_fbtn_add"
-                android:src="@android:drawable/ic_input_add"
-                android:layout_gravity="end"
-                android:layout_margin="5dp"/>
+                android:text="@string/update"
+                />
 
         </RelativeLayout>
 
     </LinearLayout>
 
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_marginTop="5dp"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="60dp"-->
-    <!--        android:orientation="horizontal"-->
-    <!--        android:weightSum="3">-->
-    <!--        <ImageView-->
-    <!--            android:id="@+id/sd_iv_driver"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="58dp"-->
-    <!--            android:src="@drawable/ic_user"-->
-    <!--            android:layout_weight="2" />-->
-    <!--        <LinearLayout-->
-    <!--            android:layout_marginLeft="5dp"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:orientation="vertical"-->
-    <!--            android:layout_weight="1"-->
-    <!--            android:weightSum="2">-->
-    <!--            <TextView-->
-    <!--                android:id="@+id/sd_tv_driver_name"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="0dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="@string/user_name"-->
-    <!--                android:textStyle="bold"/>-->
-    <!--            <TextView-->
-    <!--                android:id="@+id/sd_tv_driver_id"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="0dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:textStyle="bold"-->
-    <!--                android:text="ID"/>-->
-    <!--        </LinearLayout>-->
-    <!--    </LinearLayout>-->
-
-
 </ScrollView>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--        <EditText-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="ស្រុកឬខណ្ឌ័"/>-->
-    <!--        <EditText-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="ឃុំឬសង្កាត់"/>-->
-    <!--        </LinearLayout>-->
-    <!--        <EditText-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="ម៉ោងចេញ"/>-->
-    <!--        <EditText-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="ម៉ោងដល់"/>-->
-    <!--        <EditText-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="តម្លៃ"/>-->
-    <!--        -->
-
-

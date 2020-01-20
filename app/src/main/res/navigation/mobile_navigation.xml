@@ -25,4 +25,25 @@
         android:name="com.its.camcar.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile"/>
+
+
+<!--    Customer-->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.its.camcar.ui.customer_home.CustomerHomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_customer_home"/>
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.its.camcar.ui.customer_history.CustomerHistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_customer_history"/>
+
+    <fragment
+        android:id="@+id/nav_customer_profile"
+        android:name="com.its.camcar.ui.customer_profile.CustomerProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_customer_profile"/>
+
 </navigation>

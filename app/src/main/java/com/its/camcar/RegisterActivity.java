@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.its.camcar.helper.FireAuthHelper;
+import com.its.camcar.helper.FirebaseHelper;
 import com.its.camcar.model.User;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private FireAuthHelper fireAuthHelper ;
     User user = new User();
+
 
 
     @Override
@@ -64,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             RadioButton selectRole = findViewById(selectedRoleId);
 
             user.setRole(selectRole.getText().toString());
+
 //            Create user and save to firestore
             fireAuthHelper.createAccount(user);
         }
