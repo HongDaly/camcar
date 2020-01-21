@@ -43,10 +43,12 @@ public class FireAuthHelper {
 
                                 firebaseHelper.addUserToFirestore(user);
                                 if(user.getRole().toLowerCase().equals("customer")){
-                                    context.startActivity(new Intent(context, MainActivity.class));
+                                    Intent intent = new Intent(context,MainActivity.class);
+                                    intent.putExtra("user",user);
+                                    context.startActivity(intent);
                                 }else{
                                     Intent intent = new Intent(context,MainActivity.class);
-//                                intent.putExtra("user",user);
+                                    intent.putExtra("user",user);
                                     context.startActivity(intent);
                                 }
                             }

@@ -79,31 +79,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 //        Hide group menu
-
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        if(firebaseUser != null){
-            db.collection("users").document(firebaseUser.getUid()).get()
-                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            if(documentSnapshot != null){
-                                User user = documentSnapshot.toObject(User.class);
-                                if(user != null){
-//                                   hide menu group
-                                    if(user.getRole().toLowerCase().equals("driver")){
-                                        hideGroupMenu(R.id.g_nav_customer);
-                                    }else{
-                                        navController.navigate(R.id.nav_home);
-                                        hideGroupMenu(R.id.g_nav_driver);
-                                    }
-                                }
-                            }
-                        }
-                    });
-        }else{
-            Log.d("errr","eee");
+        if(getIntent().getExtras() != null){
+            User user = (User) getIntent().getExtras().getSerializable("user");
+            if(user != null){
+                if(user.getRole().toLowerCase().equals("driver")){
+                    hideGroupMenu(R.id.g_nav_customer);
+                }else{
+                    navController.navigate(R.id.nav_home);
+                    hideGroupMenu(R.id.g_nav_driver);
+                }
+            }
         }
     }
 
