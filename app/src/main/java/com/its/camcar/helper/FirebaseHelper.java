@@ -78,19 +78,19 @@ public class FirebaseHelper {
 
     //add schedule
     public void addScheduleToFirestore(Schedule schedule){
-        String id = db.collection("schedule").document(schedule.getUserId()).collection("list").document().getId();
+        String id =  db.collection("schedules").document().getId();
         schedule.setId(id);
-        db.collection("schedule").document(schedule.getUserId()).collection("list").document(schedule.getId()).set(schedule);
+        db.collection("schedules").document(schedule.getId()).set(schedule);
     }
 //  update schedule
 
     public void updateScheduleToFirestore(Schedule schedule){
-        db.collection("schedule").document(schedule.getUserId()).collection("list").document(schedule.getId()).set(schedule);
+        db.collection("schedules").document(schedule.getId()).set(schedule);
     }
 
     //  update schedule
     public void deleteScheduleToFirestore(Schedule schedule){
-        db.collection("schedule").document(schedule.getUserId()).collection("list").document(schedule.getId()).delete();
+        db.collection("schedules").document(schedule.getId()).delete();
     }
 
 //    get user

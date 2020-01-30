@@ -17,22 +17,6 @@ public class Schedule implements Serializable {
     private String arrivedExactLocation;
     private String userId;
 
-    public Schedule(String id, String price, String startTime, String arrivedTime, String startProvince, String startDistrict, String startCommune, String startExactLocation, String arrivedProvince, String arrivedDistrict, String arrivedCommune, String arrivedExactLocation, String userId) {
-        this.id = id;
-        this.price = price;
-        this.startTime = startTime;
-        this.arrivedTime = arrivedTime;
-        this.startProvince = startProvince;
-        this.startDistrict = startDistrict;
-        this.startCommune = startCommune;
-        this.startExactLocation = startExactLocation;
-        this.arrivedProvince = arrivedProvince;
-        this.arrivedDistrict = arrivedDistrict;
-        this.arrivedCommune = arrivedCommune;
-        this.arrivedExactLocation = arrivedExactLocation;
-        this.userId = userId;
-    }
-
     public Schedule() {
     }
 
@@ -52,6 +36,9 @@ public class Schedule implements Serializable {
         this.userId = userId;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getUserId() {
         return userId;

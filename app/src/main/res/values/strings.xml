@@ -36,10 +36,15 @@
     <string name="more">More</string>
     <string name="schedule">Schedule</string>
     <string name="price">Price</string>
-    <string name="arrivetime">ArriveTime</string>
-    <string name="starttime">StartTime</string>
+    <string name="arrive_time">Arrive Time</string>
+    <string name="start_time">Start Time</string>
     <string name="arrive">Arrive</string>
     <string name="start">Start</string>
     <string name="update">Update</string>
     <string name="history">History</string>
+    <string name="destination">Destination</string>
+    <string name="from">From</string>
+    <string name="search">Search</string>
+    <string name="_100">$100</string>
+    <string name="simple_time">00 : 00 AM</string>
 </resources>

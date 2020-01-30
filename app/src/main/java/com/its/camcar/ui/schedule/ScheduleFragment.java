@@ -88,14 +88,12 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         String userId = firebaseAuth.getUid();
         firebaseFirestore.
-                collection("schedule").
-                document(userId).collection("list")
+                collection("schedules").whereEqualTo("userId",userId)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                         if(queryDocumentSnapshots != null){
-                            schedules.clear();
-                            scheduleAdapter.updateSchedule(schedules);
+                            scheduleAdapter.clear();
                             for(QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
                                 Schedule schedule = snapshot.toObject(Schedule.class);
                                 schedules.add(schedule);

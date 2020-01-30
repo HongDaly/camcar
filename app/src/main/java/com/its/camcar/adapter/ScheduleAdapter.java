@@ -34,6 +34,10 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleViewHolder> {
         this.schedules = schedules;
         notifyDataSetChanged();
     }
+    public void clear(){
+        this.schedules.clear();
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override

@@ -80,11 +80,10 @@ public class AddScheduleActivity extends AppCompatActivity implements View.OnCli
         int id = v.getId();
 
        if(id == fBtnAdd.getId()){
-            String userId = "-1";
-
+           String userID = "";
             if(FirebaseAuth.getInstance().getCurrentUser() != null)
-                 userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            Schedule schedule =
+                userID = FirebaseAuth.getInstance().getUid();
+                Schedule schedule =
                     new Schedule(
                             edtPrice.getText().toString(),
                             edtStartTime.getText().toString(),
@@ -97,7 +96,7 @@ public class AddScheduleActivity extends AppCompatActivity implements View.OnCli
                             edtToDistrict.getText().toString(),
                             edtToCommune.getText().toString(),
                             edtToExactLocation.getText().toString(),
-                            userId
+                            userID
                     );
 
             firebaseHelper.addScheduleToFirestore(schedule);

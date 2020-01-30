@@ -16,11 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditScheduleActivity"></activity>
-        <activity android:name=".AddScheduleActivity"></activity>
+        <activity android:name=".CustomerResultActivity"></activity>
+        <activity android:name=".EditScheduleActivity" />
+        <activity android:name=".AddScheduleActivity" />
         <activity
             android:name=".DriverVerifyActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".LoginActivity"

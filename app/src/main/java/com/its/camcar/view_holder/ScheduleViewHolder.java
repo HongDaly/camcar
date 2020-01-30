@@ -34,11 +34,11 @@ public class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
     public void init(Schedule schedule){
 
-        String arriveLocation = "Arrive Location : " + schedule.getArrivedExactLocation() + " ," +
+        String arriveLocation = schedule.getArrivedExactLocation() + " ," +
                                 schedule.getArrivedCommune() + " ,"+
                                 schedule.getArrivedDistrict() + " ,"+
                                 schedule.getArrivedProvince();
-        String startLocation = "Start Location : " + schedule.getStartExactLocation() + " ,"+
+        String startLocation = schedule.getStartExactLocation() + " ,"+
                                 schedule.getStartCommune()+" ,"+
                                 schedule.getStartDistrict() + " ,"+
                                 schedule.getStartProvince();
@@ -46,9 +46,9 @@ public class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
         tvStartLocation.setText(startLocation);
         tvArriveLocation.setText(arriveLocation);
-        tvTimeStart.setText("Start Time : "+schedule.getStartTime());
-        tvTimeArrive.setText("Arrive Time : "+schedule.getArrivedTime());
-        tvPrice.setText("Price : "+schedule.getPrice());
+        tvTimeStart.setText(schedule.getStartTime());
+        tvTimeArrive.setText(schedule.getArrivedTime());
+        tvPrice.setText(schedule.getPrice());
 
     }
 
