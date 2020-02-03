@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText edtFullname;
     private RadioGroup rgRole;
     private Button btnRegister;
+    private EditText edtEmail;
 
     private FireAuthHelper fireAuthHelper ;
     User user = new User();
@@ -49,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btnRegister = findViewById(R.id.btn_next);
         rgRole = findViewById(R.id.rg_role);
         edtFullname = findViewById(R.id.edt_full_name);
+        edtEmail = findViewById(R.id.edt_email);
 
         btnRegister.setOnClickListener(this);
     }
@@ -60,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             user.setFullName(edtFullname.getText().toString());
             user.setPhone(edtPhone.getText().toString());
+            user.setEmail(edtEmail.getText().toString());
             user.setPassword(edtPassword.getText().toString());
 
             int selectedRoleId = rgRole.getCheckedRadioButtonId();

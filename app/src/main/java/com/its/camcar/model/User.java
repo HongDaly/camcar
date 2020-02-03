@@ -10,12 +10,13 @@ public class User implements Serializable{
     private String role;
     private String verifyCardUrl;
     private String profileUrl;
+    private String email;
 
 
     public User() {
     }
 
-    public User(String id, String fullName, String phone, String password, String role, String verifyCardUrl, String profileUrl) {
+    public User(String id, String fullName, String phone, String password, String role, String verifyCardUrl, String profileUrl,String email) {
         this.id = id;
         this.fullName = fullName;
         this.phone = phone;
@@ -23,6 +24,15 @@ public class User implements Serializable{
         this.role = role;
         this.verifyCardUrl = verifyCardUrl;
         this.profileUrl = profileUrl;
+        this.email = email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getProfileUrl() {

@@ -10,6 +10,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
@@ -96,5 +98,32 @@ public class FirebaseHelper {
 //    get user
     public Task<DocumentSnapshot> getUser(String userid){
        return db.collection("users").document(userid).get();
+    }
+
+
+//    get Schedule
+    public  Task<QuerySnapshot> getSchedules(){
+        return  db.collection("schedules").get();
+    }
+
+//
+    public Task<QuerySnapshot> search(String locationFrom , String locationDestination){
+
+        String[] lf = locationFrom.split(",");
+        String lfDistrict = lf[0];
+        String lfProvince = lf[1];
+
+
+        String[] ld = locationDestination.split(",");
+        String ldDistrict = ld[0];
+        String ldProvince = ld[1];
+
+
+        return db.collection("schedules")
+                .whereEqualTo("arrivedDistrict",ldDistrict)
+                .whereEqualTo("arrivedProvince",ldProvince)
+                .whereEqualTo("startDistrict",lfDistrict)
+                .whereEqualTo("startProvince",lfProvince).get();
+
     }
 }

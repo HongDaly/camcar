@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".CustomerResultActivity">
     <TextView
+        android:id="@+id/acr_tv_direction"
         android:padding="5dp"
         android:gravity="center_vertical"
         android:textColor="@color/colorWhite"
@@ -17,8 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="52dp"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/acr_rc_search_result"
+        android:layout_below="@id/acr_tv_direction"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-</LinearLayout>
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/acr_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

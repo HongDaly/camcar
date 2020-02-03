@@ -27,7 +27,7 @@ public class FireAuthHelper {
 
     public void createAccount(final User user){
         firebaseAuth
-                .createUserWithEmailAndPassword(user.getPhone(),user.getPassword())
+                .createUserWithEmailAndPassword(user.getEmail(),user.getPassword())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

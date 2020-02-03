@@ -83,8 +83,6 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getSchedule(){
-
-
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         String userId = firebaseAuth.getUid();
         firebaseFirestore.
