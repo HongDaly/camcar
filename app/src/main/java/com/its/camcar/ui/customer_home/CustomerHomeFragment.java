@@ -25,6 +25,7 @@ import com.its.camcar.helper.FirebaseHelper;
 import com.its.camcar.model.Schedule;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +88,16 @@ public class CustomerHomeFragment extends Fragment implements View.OnClickListen
                         locationsFrom.add(from);
                         locationsDestination.add(destination);
                     }
+
+                    HashSet<String> lfs = new HashSet<>(locationsFrom);
+                    locationsFrom.clear();
+                    locationsFrom.addAll(lfs);
+
+                    HashSet<String> lds = new HashSet<>(locationsDestination);
+                    locationsDestination.clear();
+                    locationsDestination.addAll(lds);
+
+
                     initAutoCompleteTextView(locationsFrom,locationsDestination);
                 }
             }

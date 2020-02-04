@@ -47,4 +47,24 @@
     <string name="search">Search</string>
     <string name="_100">$100</string>
     <string name="simple_time">00 : 00 AM</string>
+    <string name="pick_date">Pick date</string>
+    <string name="complete_info">Complete info</string>
+    <string name="number_of_person">Number of person</string>
+    <string name="book">Book</string>
+
+
+
+    <string-array name="num_person">
+        <item>Number of person</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 </resources>
