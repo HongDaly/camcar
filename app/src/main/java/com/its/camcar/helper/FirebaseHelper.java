@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -15,6 +17,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
+import com.its.camcar.model.Booking;
 import com.its.camcar.model.Schedule;
 import com.its.camcar.model.User;
 
@@ -126,4 +129,18 @@ public class FirebaseHelper {
                 .whereEqualTo("startProvince",lfProvince).get();
 
     }
+
+//
+    public Task<Void> addBooking(Booking booking){
+        String id =  db.collection("booking").document().getId();
+        booking.setId(id);
+        return db.collection("booking").document(booking.getId()).set(booking);
+    }
+//    get History
+
+    public Task<QuerySnapshot> getHistory(String userID){
+        return db.collection("booking").whereEqualTo("customerId",userID).get();
+
+    }
+
 }

@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomerBookingActivity"></activity>
+        <activity
+            android:name=".CustomerBookingActivity"></activity>
         <activity android:name=".CustomerResultActivity" />
         <activity android:name=".EditScheduleActivity" />
         <activity android:name=".AddScheduleActivity" />
