@@ -13,8 +13,10 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.its.camcar.R;
+import com.its.camcar.adapter.CustomerHistoryAdapter;
 import com.its.camcar.helper.FireAuthHelper;
 import com.its.camcar.helper.FirebaseHelper;
 import com.its.camcar.model.Booking;
@@ -30,6 +32,8 @@ public class CustomerHistoryFragment extends Fragment {
     private FirebaseHelper firebaseHelper;
     private FireAuthHelper fireAuthHelper;
     private ArrayList<Booking> bookings = new ArrayList<>();
+
+    private CustomerHistoryAdapter customerHistoryAdapter;
 
 
     public CustomerHistoryFragment() {
@@ -47,7 +51,7 @@ public class CustomerHistoryFragment extends Fragment {
         firebaseHelper = new FirebaseHelper(getContext());
         fireAuthHelper = new FireAuthHelper(getContext());
 
-
+        initData();
 
         return  v;
     }
@@ -59,7 +63,13 @@ public class CustomerHistoryFragment extends Fragment {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if(queryDocumentSnapshots !=null){
-
+                    for(DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                        Booking booking = documentSnapshot.toObject(Booking.class);
+                        bookings.add(booking);
+                    }
+                    if(bookings.size() != 0 ){
+                        initHistoryList(bookings);
+                    }
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -68,6 +78,12 @@ public class CustomerHistoryFragment extends Fragment {
 
             }
         });
+    }
+
+
+    private void initHistoryList(ArrayList<Booking> bookings){
+        customerHistoryAdapter = new CustomerHistoryAdapter(bookings,getContext());
+        rcHistory.setAdapter(customerHistoryAdapter);
     }
 
 }

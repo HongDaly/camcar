@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
@@ -108,7 +109,10 @@ public class FirebaseHelper {
     public  Task<QuerySnapshot> getSchedules(){
         return  db.collection("schedules").get();
     }
-
+//    get Schedule By ID
+    public  Task<DocumentSnapshot> getScheduleByID(String id){
+        return db.collection("schedules").document(id).get();
+    }
 //
     public Task<QuerySnapshot> search(String locationFrom , String locationDestination){
 
@@ -139,8 +143,9 @@ public class FirebaseHelper {
 //    get History
 
     public Task<QuerySnapshot> getHistory(String userID){
-        return db.collection("booking").whereEqualTo("customerId",userID).get();
-
+        return db.collection("booking").whereEqualTo("customerId",userID)
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get();
     }
 
 }

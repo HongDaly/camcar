@@ -51,7 +51,12 @@
     <string name="complete_info">Complete info</string>
     <string name="number_of_person">Number of person</string>
     <string name="book">Book</string>
-
+    <string name="_0">0</string>
+    <string name="person">Person</string>
+    <string name="date_going">Date Going</string>
+    <string name="simple_date">01/01/2020</string>
+    <string name="price_per_person">Price/Person</string>
+    <string name="total_price">Total Price</string>
 
 
     <string-array name="num_person">
