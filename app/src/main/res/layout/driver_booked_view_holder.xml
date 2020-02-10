@@ -22,18 +22,19 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"/>
             <TextView
+                android:id="@+id/dbvh_tv_customer_name"
                 android:gravity="center_vertical"
                 android:text="@string/customer"
                 android:layout_weight="4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
-            <ImageView
-                android:contentDescription="@string/driver"
-                android:padding="15dp"
-                android:src="@drawable/ic_more"
-                android:layout_weight="1"
+            <TextView
+                android:id="@+id/dbvh_tv_created_at"
+                android:text="@string/pick_date"
+                android:gravity="center_vertical"
+                android:layout_weight="3"
                 android:layout_width="0dp"
-                android:layout_height="50dp"/>
+                android:layout_height="match_parent"/>
         </LinearLayout>
         <LinearLayout
             android:padding="10dp"
@@ -52,6 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/dbvh_tv_start_time"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
@@ -72,6 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/dbvh_tv_arrive_time"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
@@ -92,6 +95,84 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/dbvh_tv_price"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="@string/_100"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:text="@string/person"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+
+                    android:id="@+id/dbvh_tv_person"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:text="@string/_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:text="@string/date_going"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/dbvh_tv_date_going"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:text="@string/simple_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:text="@string/total_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/dbvh_tv_total_price"
                     android:textStyle="bold"
                     android:textColor="@color/colorPrimaryDark"
                     android:gravity="center"
@@ -123,6 +204,7 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent"/>
             <TextView
+                android:id="@+id/dbvh_tv_customer_phone"
                 android:textSize="16sp"
                 android:text="@string/phone"
                 android:gravity="center_vertical"
@@ -159,7 +241,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"/>
                 <TextView
-                    android:id="@+id/svh_tv_start"
+                    android:id="@+id/dbvh_tv_start"
                     android:gravity="center_vertical"
                     android:text="@string/start"
                     android:layout_width="match_parent"
@@ -182,7 +264,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"/>
                 <TextView
-                    android:id="@+id/svh_tv_arrive"
+                    android:id="@+id/dbvh_tv_arrive"
                     android:gravity="center_vertical"
                     android:text="@string/arrive"
                     android:layout_width="match_parent"

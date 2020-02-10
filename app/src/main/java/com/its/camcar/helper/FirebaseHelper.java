@@ -4,16 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
@@ -54,7 +50,6 @@ public class FirebaseHelper {
     }
 
     public void addUserToFirestore(User user){
-
         db.collection("users").document(user.getId()).set(user);
     }
 
@@ -146,6 +141,14 @@ public class FirebaseHelper {
         return db.collection("booking").whereEqualTo("customerId",userID)
                 .orderBy("createdAt", Query.Direction.DESCENDING)
                 .get();
+    }
+//    get Customer Booking List
+
+    public Task<QuerySnapshot> getBookingCustomer(String driverId){
+        return db.collection("booking").whereEqualTo("driverId",driverId)
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get();
+
     }
 
 }

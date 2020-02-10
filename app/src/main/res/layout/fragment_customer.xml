@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.customer.CustomerFragment">
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fc_rl_list_book"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
