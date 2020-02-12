@@ -11,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -69,9 +71,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             RadioButton selectRole = findViewById(selectedRoleId);
 
             user.setRole(selectRole.getText().toString());
-
 //            Create user and save to firestore
-            fireAuthHelper.createAccount(user);
+            fireAuthHelper.createAccount(user)
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            if(authResult.getUser() !=null){
+                                user.setId(authResult.getUser().getUid());
+                                if(user.getRole().toLowerCase().equals("driver")){
+                                    Intent intent = new Intent(RegisterActivity.this,DriverVerifyActivity.class);
+                                    intent.putExtra("user",user);
+                                    startActivity(intent);
+                                }else{
+                                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                                    intent.putExtra("user",user);
+                                    startActivity(intent);
+                                }
+                            }
+                            finish();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(),"Something went wrong!",Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 

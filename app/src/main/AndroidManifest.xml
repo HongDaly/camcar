@@ -4,10 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -16,14 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".CustomerBookingActivity"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".CustomerBookingActivity" />
         <activity android:name=".CustomerResultActivity" />
         <activity android:name=".EditScheduleActivity" />
         <activity android:name=".AddScheduleActivity" />
         <activity
             android:name=".DriverVerifyActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".LoginActivity"

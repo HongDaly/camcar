@@ -18,6 +18,8 @@ import com.its.camcar.model.Booking;
 import com.its.camcar.model.Schedule;
 import com.its.camcar.model.User;
 
+import java.util.Map;
+
 public class FirebaseHelper {
 
     private FirebaseFirestore db;
@@ -150,5 +152,11 @@ public class FirebaseHelper {
                 .get();
 
     }
+
+
+//
+//    public Task updateUserProfile(Map<String,Object> objectMap,Uri image){
+//
+//    }
 
 }

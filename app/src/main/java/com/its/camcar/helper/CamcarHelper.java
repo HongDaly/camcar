@@ -16,10 +16,12 @@ public class CamcarHelper {
 
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
         progressBar.setLayoutParams(lp);
+        builder.setTitle("Loading....");
+        builder.setCancelable(false);
 
 
         builder.setView(progressBar);

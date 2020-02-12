@@ -24,7 +24,11 @@ import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.its.camcar.helper.FirebaseHelper;
+import com.its.camcar.helper.PermissionController;
 import com.its.camcar.model.User;
+import com.master.permissionhelper.PermissionHelper;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -37,6 +41,7 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
     private User user;
     private FirebaseHelper firebaseHelper;
     private Uri image;
+    private PermissionController permissionController;
 
 
     @Override
@@ -49,7 +54,7 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
             user = (User) getIntent().getExtras().getSerializable("user");
         }
 
-
+        permissionController = new PermissionController(this);
         firebaseHelper = new FirebaseHelper(getApplicationContext());
 
 
@@ -69,17 +74,12 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
         int id = view.getId();
         if(id == ivIDCard.getId()){
 //            OpenCamera
-            if(checkPermissionStorage()){
-                openCamera();
-            }else {
-                Toast.makeText(getApplicationContext(),"Please allow permission to use this app",Toast.LENGTH_LONG).show();
-            }
-
+            requestPermission();
 
         }else if(id == btnVerify.getId()){
-//  upload image
-//  save user to Firestore
-//  Start AddScheduleActivity
+            //  upload image
+            //  save user to Firestore
+            //  Start AddScheduleActivity
             firebaseHelper.saveUser(image,user);
 
             startActivity(new Intent(DriverVerifyActivity.this,MainActivity.class));
@@ -95,7 +95,7 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    @Override
+//    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1010){
@@ -116,42 +116,39 @@ public class DriverVerifyActivity extends AppCompatActivity implements View.OnCl
         return Uri.parse(path);
     }
 
-    private boolean checkPermissionStorage(){
 
-        if(ContextCompat.checkSelfPermission(getApplicationContext()
-        , Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            if(ContextCompat.checkSelfPermission(getApplicationContext(),
-                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
 
-                ActivityCompat.requestPermissions(
-                        this,new String[]{
-                          Manifest.permission.READ_EXTERNAL_STORAGE,
-                          Manifest.permission.WRITE_EXTERNAL_STORAGE
-                        },
-                        101
-                );
-                return false;
-
+    private void requestPermission(){
+        permissionController.requestPermission().request(new PermissionHelper.PermissionCallback() {
+            @Override
+            public void onPermissionGranted() {
+                openCamera();
             }
-            return false;
-        }
 
-        return true;
+            @Override
+            public void onIndividualPermissionGranted(@NotNull String[] strings) {
+                Toast.makeText(getApplicationContext(),"Please allow all permission to access this feature!thank you",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onPermissionDenied() {
+                Toast.makeText(getApplicationContext(),"Please allow permission to access this feature!thank you",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onPermissionDeniedBySystem() {
+                Toast.makeText(getApplicationContext(),"Permission has been denied by system!",Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if(requestCode == 101){
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
-                openCamera();
-            }else {
-                Toast.makeText(getApplicationContext(),"Please allow permission to use this app",Toast.LENGTH_LONG).show();
-
-            }
+        if(permissionController.requestPermission() !=null){
+            permissionController.requestPermission().onRequestPermissionsResult(requestCode,permissions,grantResults);
         }
-
     }
 }
 

@@ -57,6 +57,12 @@
     <string name="simple_date">01/01/2020</string>
     <string name="price_per_person">Price/Person</string>
     <string name="total_price">Total Price</string>
+    <string name="email">Email</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="simple_email">user@gmail.com</string>
+    <string name="phone_number">phone</string>
+    <string name="change_password">Change password</string>
+    <string name="driver_info">Driver Info</string>
 
 
     <string-array name="num_person">
