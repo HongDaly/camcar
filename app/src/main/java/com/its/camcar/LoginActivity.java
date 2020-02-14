@@ -61,7 +61,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvCreateAccount.setOnClickListener(this);
 
 //        check if has user (driver/customer)
-        checkCurrentUser();
 
         progressBar.setVisibility(View.INVISIBLE);
 
@@ -72,24 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-    private void checkCurrentUser(){
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        if(firebaseUser != null){
-            Task<DocumentSnapshot> task = firebaseHelper.getUser(firebaseUser.getUid());
-            task.addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    progressBar.setVisibility(View.INVISIBLE);
-                    if(documentSnapshot != null){
-                        User user = documentSnapshot.toObject(User.class);
-                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                        intent.putExtra("user",user);
-                        startActivity(intent);
-                    }
-                }
-            });
-        }
-    }
+
     @Override
     public void onClick(View view) {
         int id = view.getId();

@@ -102,7 +102,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         tvPhone.setText(user.getPhone());
                         if( user.getProfileUrl() != null){
                             Glide.with(getContext()).load(user.getProfileUrl()).into(ivProfile);
-                            ivProfile.setTag(1,user.getProfileUrl());
+                            ivProfile.setTag(user.getProfileUrl());
                         }
                     }
                 }
@@ -126,8 +126,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
             intent.putExtra("fullname",tvFullname.getText().toString());
             intent.putExtra("phone",tvPhone.getText().toString());
-            if(ivProfile.getTag(1)!=null){
-                intent.putExtra("image_url",ivProfile.getTag(1).toString());
+            if(ivProfile.getTag() != null){
+                intent.putExtra("image_url",ivProfile.getTag().toString());
             }else {
                 intent.putExtra("image_url","none");
             }
@@ -136,5 +136,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }else if(id == llDriverInfo.getId()){
 //            Start to Driver Information Activity
         }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initUI();
     }
 }

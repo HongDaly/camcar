@@ -9,9 +9,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +24,8 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.its.camcar.helper.FireAuthHelper;
+import com.its.camcar.helper.FirebaseHelper;
 import com.its.camcar.helper.PermissionController;
 import com.its.camcar.model.User;
 import com.master.permissionhelper.PermissionHelper;
@@ -44,6 +48,12 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private AlertDialog.Builder builder;
     private PermissionController permissionController;
     private Uri image;
+
+    private FirebaseHelper firebaseHelper;
+    private FireAuthHelper fireAuthHelper;
+
+    private String imageUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +67,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         initUI();
 
 
+        fireAuthHelper = new FireAuthHelper(getApplicationContext());
+        firebaseHelper = new FirebaseHelper(getApplicationContext());
+
 
         ivProfile.setOnClickListener(this);
         btnUpdate.setOnClickListener(this);
@@ -65,19 +78,17 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
 
     private void initUI(){
-
         if(getIntent().getExtras() !=null){
-            String imageUrl = getIntent().getExtras().getString("image_url");
+            imageUrl = getIntent().getExtras().getString("image_url");
+            Log.d("Image UI", "initUI: "+imageUrl);
             if(!imageUrl.equals("none")){
                 Glide.with(getApplicationContext()).load(imageUrl).into(ivProfile);
             }
             String fullname = getIntent().getExtras().getString("fullname");
             edtFullName.setText(fullname);
-
             String phone = getIntent().getExtras().getString("phone");
             edtPhone.setText(phone);
         }
-
     }
 
     @Override
@@ -88,8 +99,25 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             Map<String,Object> objectMap = new HashMap<>();
             objectMap.put("fullName",edtFullName.getText().toString());
             objectMap.put("phone",edtPhone.getText().toString());
-
-
+            String userID = fireAuthHelper.getCurrentUser().getUid();
+            if(imageUrl.equals("none")){
+                if(image != null){
+                    firebaseHelper.updateUserProfile(objectMap,image,userID,this);
+                }else {
+                    Toast.makeText(getApplicationContext(),"Please upload image!",Toast.LENGTH_LONG).show();
+                }
+            }else{
+                if(image != null){
+                    firebaseHelper.updateUserProfile(objectMap,image,userID,this);
+                }else{
+                    firebaseHelper.updateUserProfileNoImage(objectMap,userID).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            finish();
+                        }
+                    });
+                }
+            }
         }else if(id == ivProfile.getId()){
             initPermission();
         }

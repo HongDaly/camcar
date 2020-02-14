@@ -1,5 +1,6 @@
 package com.its.camcar.helper;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
@@ -155,8 +156,33 @@ public class FirebaseHelper {
 
 
 //
-//    public Task updateUserProfile(Map<String,Object> objectMap,Uri image){
-//
-//    }
+    public void updateUserProfile(final Map<String,Object> objectMap, Uri image, final String userID, final Activity activity){
+
+        final String imageName = String.valueOf(System.currentTimeMillis());
+        storage.getReference("profile/"+imageName).putFile(image)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        storage.getReference("profile/"+imageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                objectMap.put("profileUrl",uri.toString());
+                                db.collection("users").document(userID).set(objectMap,SetOptions.merge())
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                activity.finish();
+                                            }
+                                        });
+                            }
+                        });
+                    }
+                });
+
+    }
+
+    public Task<Void> updateUserProfileNoImage(final Map<String,Object> objectMap,final String userID){
+        return db.collection("users").document(userID).set(objectMap,SetOptions.merge());
+    }
 
 }
